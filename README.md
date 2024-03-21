@@ -6,6 +6,10 @@ Run the following command to generate a key.
 ```bash
 $ ssh-keygen
 ```
+or
+```
+ssh-keygen -t rsa -f ~/.ssh/KEY_FILENAME -C USERNAME -b 2048
+```
 You’ll be asked to enter passphrase. You can leave that empty.
 ```
 Enter passphrase (empty for no passphrase):
