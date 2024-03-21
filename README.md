@@ -4,7 +4,7 @@ Perform the following steps on your local machine.
 
 Run the following command to generate a key.
 ```bash
-$ ssh-keygen
+ssh-keygen
 ```
 or
 ```
@@ -24,12 +24,12 @@ The key fingerprint is:
 ```
 Start the ssh-agent:
 ```
-$ eval `ssh-agent`
+eval `ssh-agent`
 Agent pid 59566
 ```
 add your key to the agent:
 ```
-$ ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa
 ```
 Copy the contents of ~/.ssh/id_rsa.pub to your clipboard. The file location can vary if you chose a different path for your key earlier.
 Hint: It starts with ssh-rsa and ends with something@something.
@@ -42,13 +42,13 @@ Open GCP instance in a browser window
 
 Open ~/.ssh/authorized_keys file for editing:
 ```
-$ sudo nano ~/.ssh/authorized_keys
+sudo nano ~/.ssh/authorized_keys
 ```
 Paste the contents of clipboard and press CTRL + S to save the file. Press CTRL + X to exit the editor.
 
 Allow for root login on SSH connections. Open /etc/ssh/sshd_config for editing:
 ```
-$ sudo nano /etc/ssh/sshd_config
+sudo nano /etc/ssh/sshd_config
 ```
 Uncomment the line starting with PermitRootLogin prohibit-password and add another line right below it as shown:
 ```
@@ -71,7 +71,7 @@ If you followed all the steps correctly, give yourself a pat on the back. You di
 
 Now you should be able to ssh to your instance as root user by doing:
 ```
-$ ssh <your root username>@<public IP of your instance>
+ssh <your root username>@<public IP of your instance>
 ```
 Bonus: If outbound port 22 is blocked on your network
 If your ISP has blocked the default SSH port (22), you can use SSH over the HTTPS port (443), which is generally open. Follow the steps given below.
@@ -82,7 +82,7 @@ Open GCP instance in a browser window
 
 Open /etc/ssh/sshd_config file for editing:
 ```
-$ sudo nano /etc/ssh/sshd_config
+sudo nano /etc/ssh/sshd_config
 ```
 Uncomment the line
 ```
@@ -121,7 +121,7 @@ Save the rule.
 Connect from you local machine
 Now you should be able to ssh to your instance as root user by doing:
 ```
-$ ssh -p 443 <your root username>@<public ip of your instance >
+ssh -p 443 <your root username>@<public ip of your instance >
 ```
 That’s it. If you face any problems following the tutorial, comment down below and I might be able to help out.
 
